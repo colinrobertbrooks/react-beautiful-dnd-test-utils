@@ -1,6 +1,6 @@
 # react-beautiful-dnd-test-utils
 
-Test utils for [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd) buit with `react-testing-library`.
+Test utils for [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd) buit with [`react-testing-library`](https://github.com/testing-library/react-testing-library).
 
 ## Usage
 
