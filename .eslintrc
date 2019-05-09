@@ -1,0 +1,11 @@
+{
+  "extends": "colinrcummings",
+  "rules": {
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["jest-dom/extend-expect", "react-testing-library"]
+      }
+    ]
+  }
+}

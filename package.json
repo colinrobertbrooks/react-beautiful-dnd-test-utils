@@ -1,0 +1,45 @@
+{
+  "name": "react-beautiful-dnd-test-utils",
+  "version": "0.1.0",
+  "description": "Test utils for react-beautiful-dnd buit with react-testing-library.",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "prettier": "prettier \"{src,__{tests,mocks}__}/**/*.+(js|json)\"",
+    "format:check": "npm run prettier -- --list-different",
+    "format:fix": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run format:check",
+    "prebuild": "npm run validate",
+    "build": "npm run build:clean && npm run build:dist ",
+    "build:clean": "rimraf dist",
+    "build:dist": "rollup -c"
+  },
+  "repository": "colinrcummings/react-beautiful-dnd-test-utils",
+  "keywords": [
+    "react",
+    "drag and drop",
+    "dnd",
+    "testing",
+    "jsdom",
+    "unit",
+    "integration"
+  ],
+  "author": "Colin Cummings <colinrcummings@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/colinrcummings/react-beautiful-dnd-test-utils/issues"
+  },
+  "homepage": "https://github.com/colinrcummings/react-beautiful-dnd-test-utils#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-colinrcummings": "^2.3.0",
+    "prettier": "^1.17.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.11.3"
+  },
+  "peerDependencies": {
+    "jest": "^24.0.0",
+    "jest-dom": "^3.0.0",
+    "react-testing-library": "^7.0.0"
+  }
+}
