@@ -1,6 +1,6 @@
 {
   "name": "react-beautiful-dnd-test-utils",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Test utils for react-beautiful-dnd buit with react-testing-library.",
   "main": "dist/index.cjs.js",
   "scripts": {

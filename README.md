@@ -4,7 +4,7 @@ Test utils for [`react-beautiful-dnd`](https://github.com/atlassian/react-beauti
 
 ## Installation
 
-This module is distributed via [`npm`][npm], which is bundled with [`node`][node], and
+This module is distributed via [`npm`](https://www.npmjs.com/), which is bundled with [`node`](https://nodejs.org/en/), and
 should be installed as one of your project's `devDependencies`:
 
 ```
