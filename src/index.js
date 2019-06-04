@@ -1,5 +1,5 @@
 import 'jest-dom/extend-expect';
-import { fireEvent, waitForElement } from 'react-testing-library';
+import { fireEvent, waitForElement } from '@testing-library/react';
 
 /*
   window.getComputedStyle mock
