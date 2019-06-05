@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/colinrcummings/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
+    "@testing-library/react": "^8.0.1",
     "eslint": "^5.16.0",
     "eslint-config-colinrcummings": "^2.3.0",
     "prettier": "^1.17.0",
@@ -38,8 +39,8 @@
     "rollup": "^1.11.3"
   },
   "peerDependencies": {
+    "@testing-library/react": "^8.0.1",
     "jest": "^24.0.0",
-    "jest-dom": "^3.0.0",
-    "react-testing-library": "^7.0.0"
+    "jest-dom": "^3.0.0"
   }
 }

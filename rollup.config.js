@@ -4,5 +4,5 @@ export default {
     file: 'dist/index.cjs.js',
     format: 'cjs'
   },
-  external: ['jest', 'jest-dom/extend-expect', 'react-testing-library']
+  external: ['jest', 'jest-dom/extend-expect', '@testing-library/react']
 };
