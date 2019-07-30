@@ -11,7 +11,7 @@ should be installed as one of your project's `devDependencies`:
 npm install --save-dev react-beautiful-dnd-test-utils
 ```
 
-`jest`, `jest-dom` and `@testing-library/react` must also be installed.
+`jest`, `@testing-library/jest-dom/extend-expect` and `@testing-library/react` must also be installed.
 
 ## Usage
 
