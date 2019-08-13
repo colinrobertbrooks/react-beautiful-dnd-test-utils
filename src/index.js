@@ -91,13 +91,15 @@ export const makeDnd = async ({
   getByText,
   getDragEl,
   direction,
-  positions
+  positions,
+  cancelMovement = false
 }) => {
   const spaceKey = { keyCode: 32 };
   const arrowLeftKey = { keyCode: 37 };
   const arrowUpKey = { keyCode: 38 };
   const arrowRightKey = { keyCode: 39 };
   const arrowDownKey = { keyCode: 40 };
+  const escKey = { keyCode: 27 };
   const getKeyForDirection = () => {
     switch (direction) {
       case DND_DIRECTION_LEFT:
@@ -116,12 +118,23 @@ export const makeDnd = async ({
     // enable keyboard dragging
     fireEvent.keyDown(getDragEl(), spaceKey);
     await waitForElement(() => getByText(/You have lifted an item/i));
-    // move drag element based on direction
-    fireEvent.keyDown(getDragEl(), getKeyForDirection());
-    await waitForElement(() => getByText(/You have moved the item/i));
+    if(positions > 0) {
+      // move drag element based on direction
+      fireEvent.keyDown(getDragEl(), getKeyForDirection());
+      await waitForElement(() => getByText(/You have moved the item/i));
+    }
     // disable keyboard dragging
     fireEvent.keyDown(getDragEl(), spaceKey);
     await waitForElement(() => getByText(/You have dropped the item/i));
+  };
+
+  const handleCancelMovement = async () => {
+    // enable keyboard dragging
+    fireEvent.keyDown(getDragEl(), spaceKey);
+    await waitForElement(() => getByText(/You have lifted an item/i));
+    // cancel movement
+    fireEvent.keyDown(getDragEl(), escKey);
+    await waitForElement(() => getByText(/Movement cancelled/i));
   };
 
   // focus drag element
@@ -130,8 +143,12 @@ export const makeDnd = async ({
 
   // move drag element based on direction and positions
   const movements = [];
-  for (let i = 0; i < positions; i += 1) {
-    movements.push(handleMovementInDirection);
+  if (cancelMovement) {
+    movements.push(handleCancelMovement);
+  } else {
+    for (let i = 0; i <= positions; i += 1) {
+      movements.push(handleMovementInDirection);
+    }
   }
   await executeAsyncFnsSerially(movements);
 };
