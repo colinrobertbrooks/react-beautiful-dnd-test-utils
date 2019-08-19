@@ -118,7 +118,7 @@ export const makeDnd = async ({
     // enable keyboard dragging
     fireEvent.keyDown(getDragEl(), spaceKey);
     await waitForElement(() => getByText(/You have lifted an item/i));
-    if(positions > 0) {
+    if (positions > 0) {
       // move drag element based on direction
       fireEvent.keyDown(getDragEl(), getKeyForDirection());
       await waitForElement(() => getByText(/You have moved the item/i));
