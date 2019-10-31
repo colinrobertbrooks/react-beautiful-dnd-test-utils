@@ -66,8 +66,9 @@ const executeAsyncFnsSerially = fns =>
 /*
   react-beautiful-dnd utils
 */
-const DND_DROPPABLE_DATA_ATTR = '[data-react-beautiful-dnd-droppable]';
-export const DND_DRAGGABLE_DATA_ATTR = '[data-react-beautiful-dnd-draggable]';
+// used for lookups
+const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
+export const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
 
 export const mockDndElSpacing = rtlUtils => {
   const droppables = rtlUtils.container.querySelectorAll(
