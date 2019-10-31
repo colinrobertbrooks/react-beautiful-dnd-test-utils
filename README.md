@@ -1,6 +1,15 @@
-# react-beautiful-dnd-test-utils
+<div align="center">
+  <h1>react-beautiful-dnd-test-utils</h1>
+  <a href="https://emojipedia.org/gloves/">
+    <img height="80" width="80" alt="gloves" src="https://raw.githubusercontent.com/colinrcummings/react-beautiful-dnd-test-utils/master/other/gloves.png" />
+  </a>
 
-Test utils for [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd) (`rbd`) buit with [`react-testing-library`](https://github.com/testing-library/react-testing-library).
+  <p>Test utils for <a href="https://github.com/atlassian/react-beautiful-dnd">react-beautiful-dnd (rbd)</a> built with <a href="https://github.com/testing-library/react-testing-library">react-testing-library</a>.</p>
+
+  <br />
+</div>
+
+<hr />
 
 [![npm version](https://badge.fury.io/js/react-beautiful-dnd-test-utils.svg)](https://badge.fury.io/js/react-beautiful-dnd-test-utils)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
