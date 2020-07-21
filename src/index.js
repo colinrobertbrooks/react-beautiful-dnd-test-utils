@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, waitForElement } from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 
 /*
   window.getComputedStyle mock
@@ -116,13 +116,13 @@ export const makeDnd = async ({
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
     fireEvent.keyDown(getDragEl(), spaceKey);
-    await waitForElement(() => getByText(/You have lifted an item/i));
+    await waitFor(() => getByText(/You have lifted an item/i));
     // move drag element based on direction
     fireEvent.keyDown(getDragEl(), getKeyForDirection());
-    await waitForElement(() => getByText(/You have moved the item/i));
+    await waitFor(() => getByText(/You have moved the item/i));
     // disable keyboard dragging
     fireEvent.keyDown(getDragEl(), spaceKey);
-    await waitForElement(() => getByText(/You have dropped the item/i));
+    await waitFor(() => getByText(/You have dropped the item/i));
   };
 
   // focus drag element
