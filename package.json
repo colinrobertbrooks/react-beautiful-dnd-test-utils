@@ -14,7 +14,7 @@
     "build:clean": "rimraf dist",
     "build:dist": "rollup -c"
   },
-  "repository": "colinrcummings/react-beautiful-dnd-test-utils",
+  "repository": "colinrobertbrooks/react-beautiful-dnd-test-utils",
   "keywords": [
     "react",
     "drag and drop",
@@ -24,12 +24,12 @@
     "unit",
     "integration"
   ],
-  "author": "Colin Cummings <colinrcummings@gmail.com>",
+  "author": "Colin Brooks <colinrcummings@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/colinrcummings/react-beautiful-dnd-test-utils/issues"
+    "url": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils/issues"
   },
-  "homepage": "https://github.com/colinrcummings/react-beautiful-dnd-test-utils#readme",
+  "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
     "@testing-library/react": "^9.3.1",
     "eslint": "^6.6.0",
