@@ -1,6 +1,6 @@
 {
   "name": "react-beautiful-dnd-test-utils",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "Test utils for react-beautiful-dnd built with react-testing-library.",
   "main": "dist/index.cjs.js",
   "scripts": {
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
-    "@testing-library/react": "^9.3.1",
+    "@testing-library/react": "^12.0.0",
     "eslint": "^6.6.0",
     "eslint-config-colinrcummings": "^3.2.0",
     "prettier": "^1.18.2",
@@ -40,8 +40,8 @@
     "rollup": "^1.26.0"
   },
   "peerDependencies": {
-    "@testing-library/react": "^8.0.1",
-    "@testing-library/jest-dom": "^4.0.0",
-    "jest": "^24.0.0"
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "jest": "^27.1.1"
   }
 }
