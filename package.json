@@ -40,8 +40,8 @@
     "rollup": "^2.58.0"
   },
   "peerDependencies": {
-    "@testing-library/react": ">=8",
     "@testing-library/jest-dom": ">=4",
+    "@testing-library/react": ">=8",
     "jest": ">=24"
   }
 }
