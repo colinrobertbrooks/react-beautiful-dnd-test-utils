@@ -32,16 +32,16 @@
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
-    "@testing-library/react": "^9.3.1",
-    "eslint": "^6.6.0",
-    "eslint-config-colinrcummings": "^3.2.0",
+    "@testing-library/react": "^12.1.2",
+    "eslint": "^7.5.0",
+    "eslint-config-colinrobertbrooks": "^1.0.1",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "rollup": "^1.26.0"
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0"
   },
   "peerDependencies": {
-    "@testing-library/react": "^8.0.1",
-    "@testing-library/jest-dom": "^4.0.0",
-    "jest": "^24.0.0"
+    "@testing-library/react": ">=8",
+    "@testing-library/jest-dom": ">=4",
+    "jest": ">=24"
   }
 }
