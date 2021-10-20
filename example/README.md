@@ -4,6 +4,12 @@ A fork of the `working-board` branch of [react-beautiful-dnd-task-app](https://g
 
 ---
 
+## Setup
+
+Run `npm run build` in the root directory, then run`npm install`.
+
+---
+
 ## Run the Task App
 
 Run `npm start` and open [localhost:3000](http://localhost:3000/).

@@ -5,8 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "dependencies": {
     "@atlaskit/css-reset": "^6.1.4",
@@ -19,7 +18,7 @@
     "@sheerun/mutationobserver-shim": "^0.3.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
-    "react-beautiful-dnd-test-utils": "^3.2.1",
+    "react-beautiful-dnd-test-utils": "../",
     "react-scripts": "^4.0.3"
   },
   "browserslist": {
