@@ -1,6 +1,7 @@
 {
   "extends": [
     "colinrobertbrooks",
+    "colinrobertbrooks/typescript",
     "colinrobertbrooks/jest",
     "colinrobertbrooks/prettier"
   ],

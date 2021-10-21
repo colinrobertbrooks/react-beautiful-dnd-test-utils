@@ -4,8 +4,8 @@
   "description": "Test utils for react-beautiful-dnd built with react-testing-library.",
   "main": "dist/index.cjs.js",
   "scripts": {
-    "lint": "eslint src",
-    "prettier": "prettier \"{src,__{tests,mocks}__}/**/*.+(js|json)\"",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\"",
+    "prettier": "prettier \"{src,__{tests,mocks}__}/**/*.+(ts|tsx|json|css)\"",
     "format:check": "npm run prettier -- --list-different",
     "format:fix": "npm run prettier -- --write",
     "validate": "npm run lint && npm run format:check",
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "eslint": "^7.5.0",

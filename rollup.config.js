@@ -1,9 +1,11 @@
-export default {
-  input: 'src/index.js',
+import typescript from '@rollup/plugin-typescript';
 
+export default {
+  input: 'src/index.ts',
   output: {
     file: 'dist/index.cjs.js',
     format: 'cjs'
   },
-  external: ['jest', '@testing-library/jest-dom', '@testing-library/react']
+  plugins: [typescript({ tsconfig: './tsconfig.json' })],
+  external: ['@testing-library/jest-dom', '@testing-library/react', 'jest']
 };
