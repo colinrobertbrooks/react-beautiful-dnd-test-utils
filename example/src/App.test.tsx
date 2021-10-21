@@ -4,8 +4,8 @@ import {
   mockGetComputedStyle,
   mockDndElSpacing,
   makeDnd,
-  DND_DIRECTION_DOWN,
-  DND_DIRECTION_UP
+  DND_DIRECTION_UP,
+  DND_DIRECTION_DOWN
 } from 'react-beautiful-dnd-test-utils';
 import App from './App';
 import initialData from './initial-data';
@@ -31,23 +31,6 @@ describe('App', () => {
   });
 
   describe('dnd', () => {
-    test('moves a task down inside a column', async () => {
-      renderApp();
-
-      await makeDnd({
-        text: 'Take out the garbage',
-        direction: DND_DIRECTION_DOWN,
-        positions: 2
-      });
-
-      verifyTaskOrderInColumn('to-do-column', [
-        'Watch my favorite show',
-        'Charge my phone',
-        'Take out the garbage',
-        'Cook dinner'
-      ]);
-    });
-
     test('moves a task up inside a column', async () => {
       renderApp();
 
@@ -62,6 +45,23 @@ describe('App', () => {
         'Watch my favorite show',
         'Cook dinner',
         'Charge my phone'
+      ]);
+    });
+
+    test('moves a task down inside a column', async () => {
+      renderApp();
+
+      await makeDnd({
+        text: 'Take out the garbage',
+        direction: DND_DIRECTION_DOWN,
+        positions: 2
+      });
+
+      verifyTaskOrderInColumn('to-do-column', [
+        'Watch my favorite show',
+        'Charge my phone',
+        'Take out the garbage',
+        'Cook dinner'
       ]);
     });
   });

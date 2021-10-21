@@ -86,9 +86,7 @@ export const mockDndElSpacing = (container: HTMLElement): void => {
   });
 };
 
-export const DND_DIRECTION_LEFT = 'DND_DIRECTION_LEFT';
 export const DND_DIRECTION_UP = 'DND_DIRECTION_UP';
-export const DND_DIRECTION_RIGHT = 'DND_DIRECTION_RIGHT';
 export const DND_DIRECTION_DOWN = 'DND_DIRECTION_DOWN';
 
 export const makeDnd = async ({
@@ -97,25 +95,15 @@ export const makeDnd = async ({
   positions
 }: {
   text: string;
-  direction:
-    | 'DND_DIRECTION_LEFT'
-    | 'DND_DIRECTION_UP'
-    | 'DND_DIRECTION_RIGHT'
-    | 'DND_DIRECTION_DOWN';
+  direction: 'DND_DIRECTION_UP' | 'DND_DIRECTION_DOWN';
   positions: number;
 }): Promise<void> => {
   // https://testing-library.com/docs/ecosystem-user-event/#special-characters
   const spaceKey = '{space}';
-  const arrowLeftKey = '{arrowleft}';
-  const arrowRightKey = '{arrowright}';
   const arrowUpKey = '{arrowup}';
   const arrowDownKey = '{arrowdown}';
   const getKeyForDirection = () => {
     switch (direction) {
-      case DND_DIRECTION_LEFT:
-        return arrowLeftKey;
-      case DND_DIRECTION_RIGHT:
-        return arrowRightKey;
       case DND_DIRECTION_UP:
         return arrowUpKey;
       case DND_DIRECTION_DOWN:
