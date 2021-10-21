@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  render,
-  within,
-  Matcher,
-  SelectorMatcherOptions
-} from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import {
   mockGetComputedStyle,
   mockDndElSpacing,
@@ -16,20 +11,14 @@ import {
 import App from './App';
 import initialData from './initial-data';
 
-const createTestTextOrderByTestIdHelper = (
-  getAllByTestId: (
-    id: Matcher,
-    options?: SelectorMatcherOptions
-  ) => HTMLElement[]
-) => {
-  const testTextOrderByTestId = (
-    testId: string,
-    expectedTexts: string[]
-  ): void => {
-    const texts = getAllByTestId(testId).map(x => x.textContent);
-    expect(texts).toEqual(expectedTexts);
-  };
-  return testTextOrderByTestId;
+const verifyTaskOrderInColumn = (
+  columnTestId: string,
+  orderedTasks: string[]
+): void => {
+  const texts = within(screen.getByTestId(columnTestId))
+    .getAllByTestId('task')
+    .map(x => x.textContent);
+  expect(texts).toEqual(orderedTasks);
 };
 
 const renderApp = () => {
@@ -52,7 +41,7 @@ describe('App', () => {
 
   describe('dnd', () => {
     test('moves a task down inside a column', async () => {
-      const { getByTestId, makeGetDragEl } = renderApp();
+      const { makeGetDragEl } = renderApp();
 
       await makeDnd({
         getDragEl: makeGetDragEl('Take out the garbage'),
@@ -60,13 +49,7 @@ describe('App', () => {
         positions: 2
       });
 
-      const { getAllByTestId: getAllByTestIdWithinColumn } = within(
-        getByTestId('to-do-column')
-      );
-      const testTextOrderByTestId = createTestTextOrderByTestIdHelper(
-        getAllByTestIdWithinColumn
-      );
-      testTextOrderByTestId('task-content', [
+      verifyTaskOrderInColumn('to-do-column', [
         'Watch my favorite show',
         'Charge my phone',
         'Take out the garbage',
@@ -75,7 +58,7 @@ describe('App', () => {
     });
 
     test('moves a task up inside a column', async () => {
-      const { getByTestId, makeGetDragEl } = renderApp();
+      const { makeGetDragEl } = renderApp();
 
       await makeDnd({
         getDragEl: makeGetDragEl('Cook dinner'),
@@ -83,13 +66,7 @@ describe('App', () => {
         positions: 1
       });
 
-      const { getAllByTestId: getAllByTestIdWithinColumn } = within(
-        getByTestId('to-do-column')
-      );
-      const testTextOrderByTestId = createTestTextOrderByTestIdHelper(
-        getAllByTestIdWithinColumn
-      );
-      testTextOrderByTestId('task-content', [
+      verifyTaskOrderInColumn('to-do-column', [
         'Take out the garbage',
         'Watch my favorite show',
         'Cook dinner',
