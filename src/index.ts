@@ -106,7 +106,7 @@ export const makeDnd = async ({
   positions
 }: {
   getByText: (id: Matcher, options?: SelectorMatcherOptions) => HTMLElement;
-  getDragEl: () => Element;
+  getDragEl: () => Element | null;
   direction:
     | 'DND_DIRECTION_LEFT'
     | 'DND_DIRECTION_UP'
