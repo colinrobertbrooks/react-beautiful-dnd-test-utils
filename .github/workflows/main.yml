@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install dependencies (with cache)
+      - name: Install dependencies (without cache)
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
