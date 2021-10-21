@@ -72,16 +72,13 @@ const executeAsyncFnsSerially = (fns: AsyncFn[]): Promise<void[]> =>
 /*
  *  react-beautiful-dnd utils
  */
-// used for lookups
 const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
-export const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
+const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
 
 export const mockDndElSpacing = (container: HTMLElement): void => {
-  // eslint-disable-next-line testing-library/no-node-access
   const droppables = container.querySelectorAll(DND_DROPPABLE_DATA_ATTR);
   droppables.forEach(dropEl => {
     mockGetBoundingClientRect(dropEl);
-    // eslint-disable-next-line testing-library/no-node-access
     const draggables = dropEl.querySelectorAll(DND_DRAGGABLE_DATA_ATTR);
     draggables.forEach(dragEl => {
       mockGetBoundingClientRect(dragEl);
@@ -95,11 +92,11 @@ export const DND_DIRECTION_RIGHT = 'DND_DIRECTION_RIGHT';
 export const DND_DIRECTION_DOWN = 'DND_DIRECTION_DOWN';
 
 export const makeDnd = async ({
-  getDragEl,
+  text,
   direction,
   positions
 }: {
-  getDragEl: () => Element | null;
+  text: string;
   direction:
     | 'DND_DIRECTION_LEFT'
     | 'DND_DIRECTION_UP'
@@ -146,8 +143,9 @@ export const makeDnd = async ({
   };
 
   // focus drag element
-  (getDragEl() as HTMLElement).focus();
-  expect(getDragEl()).toHaveFocus();
+  const dragEl = screen.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
+  (dragEl as HTMLElement).focus();
+  expect(dragEl).toHaveFocus();
 
   // move drag element based on direction and positions
   const movements = [];
