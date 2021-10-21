@@ -3,6 +3,7 @@
   "version": "3.2.1",
   "description": "Test utils for react-beautiful-dnd built with react-testing-library.",
   "main": "dist/index.cjs.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint \"./src/**/*.{ts,tsx}\"",
     "prettier": "prettier \"{src,__{tests,mocks}__}/**/*.+(ts|tsx|json|css)\"",
