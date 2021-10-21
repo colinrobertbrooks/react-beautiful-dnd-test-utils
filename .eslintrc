@@ -8,6 +8,11 @@
     "browser": true
   },
   "rules": {
-    "import/no-unresolved": "off"
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["@testing-library/jest-dom/extend-expect"]
+      }
+    ]
   }
 }
