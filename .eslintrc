@@ -7,5 +7,7 @@
   "env": {
     "browser": true
   },
-  "rules": {}
+  "rules": {
+    "import/no-unresolved": "off"
+  }
 }
