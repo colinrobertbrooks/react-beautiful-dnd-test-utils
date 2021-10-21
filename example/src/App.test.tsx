@@ -50,10 +50,9 @@ describe('App', () => {
 
   describe('dnd', () => {
     test('moves a task down inside a column', async () => {
-      const { getByText, getByTestId, makeGetDragEl } = renderApp();
+      const { getByTestId, makeGetDragEl } = renderApp();
 
       await makeDnd({
-        getByText,
         getDragEl: makeGetDragEl('Take out the garbage'),
         direction: DND_DIRECTION_DOWN,
         positions: 2
@@ -74,10 +73,9 @@ describe('App', () => {
     });
 
     test('moves a task up inside a column', async () => {
-      const { getByText, getByTestId, makeGetDragEl } = renderApp();
+      const { getByTestId, makeGetDragEl } = renderApp();
 
       await makeDnd({
-        getByText,
         getDragEl: makeGetDragEl('Cook dinner'),
         direction: DND_DIRECTION_UP,
         positions: 1

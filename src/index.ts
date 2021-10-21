@@ -1,11 +1,6 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
-import {
-  waitFor,
-  RenderResult,
-  Matcher,
-  SelectorMatcherOptions
-} from '@testing-library/react';
+import { screen, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 /*
@@ -100,12 +95,10 @@ export const DND_DIRECTION_RIGHT = 'DND_DIRECTION_RIGHT';
 export const DND_DIRECTION_DOWN = 'DND_DIRECTION_DOWN';
 
 export const makeDnd = async ({
-  getByText,
   getDragEl,
   direction,
   positions
 }: {
-  getByText: (id: Matcher, options?: SelectorMatcherOptions) => HTMLElement;
   getDragEl: () => Element | null;
   direction:
     | 'DND_DIRECTION_LEFT'
@@ -137,13 +130,19 @@ export const makeDnd = async ({
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
     userEvent.keyboard(spaceKey);
-    await waitFor(() => getByText(/You have lifted an item/i));
+    expect(
+      await screen.findByText(/You have lifted an item/i)
+    ).toBeInTheDocument();
     // move drag element based on direction
     userEvent.keyboard(getKeyForDirection());
-    await waitFor(() => getByText(/You have moved the item/i));
+    expect(
+      await screen.findByText(/You have moved the item/i)
+    ).toBeInTheDocument();
     // disable keyboard dragging
     userEvent.keyboard(spaceKey);
-    await waitFor(() => getByText(/You have dropped the item/i));
+    expect(
+      await screen.findByText(/You have dropped the item/i)
+    ).toBeInTheDocument();
   };
 
   // focus drag element
