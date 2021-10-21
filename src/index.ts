@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import {
-  fireEvent,
   waitFor,
   RenderResult,
   Matcher,
   SelectorMatcherOptions
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 /*
  *  window.getComputedStyle mock
@@ -114,19 +114,20 @@ export const makeDnd = async ({
     | 'DND_DIRECTION_DOWN';
   positions: number;
 }): Promise<void> => {
-  const spaceKey = { keyCode: 32 };
-  const arrowLeftKey = { keyCode: 37 };
-  const arrowUpKey = { keyCode: 38 };
-  const arrowRightKey = { keyCode: 39 };
-  const arrowDownKey = { keyCode: 40 };
+  // https://testing-library.com/docs/ecosystem-user-event/#special-characters
+  const spaceKey = '{space}';
+  const arrowLeftKey = '{arrowleft}';
+  const arrowRightKey = '{arrowright}';
+  const arrowUpKey = '{arrowup}';
+  const arrowDownKey = '{arrowdown}';
   const getKeyForDirection = () => {
     switch (direction) {
       case DND_DIRECTION_LEFT:
         return arrowLeftKey;
-      case DND_DIRECTION_UP:
-        return arrowUpKey;
       case DND_DIRECTION_RIGHT:
         return arrowRightKey;
+      case DND_DIRECTION_UP:
+        return arrowUpKey;
       case DND_DIRECTION_DOWN:
         return arrowDownKey;
       default:
@@ -135,13 +136,13 @@ export const makeDnd = async ({
   };
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
-    fireEvent.keyDown(getDragEl(), spaceKey);
+    userEvent.keyboard(spaceKey);
     await waitFor(() => getByText(/You have lifted an item/i));
     // move drag element based on direction
-    fireEvent.keyDown(getDragEl(), getKeyForDirection());
+    userEvent.keyboard(getKeyForDirection());
     await waitFor(() => getByText(/You have moved the item/i));
     // disable keyboard dragging
-    fireEvent.keyDown(getDragEl(), spaceKey);
+    userEvent.keyboard(spaceKey);
     await waitFor(() => getByText(/You have dropped the item/i));
   };
 

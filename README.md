@@ -23,7 +23,12 @@ should be installed as one of your project's `devDependencies`:
 npm install --save-dev react-beautiful-dnd-test-utils
 ```
 
-`jest`, `@testing-library/jest-dom` and `@testing-library/react` must also be installed.
+The following packages must also be installed:
+
+- `@testing-library/jest-dom`
+- `@testing-library/react`
+- `@testing-library/user-event`
+- `jest`
 
 ## Supported versions of `rbd`
 

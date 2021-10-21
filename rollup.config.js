@@ -7,5 +7,10 @@ export default {
     format: 'cjs'
   },
   plugins: [typescript({ tsconfig: './tsconfig.json' })],
-  external: ['@testing-library/jest-dom', '@testing-library/react', 'jest']
+  external: [
+    '@testing-library/jest-dom',
+    '@testing-library/react',
+    '@testing-library/user-event',
+    'jest'
+  ]
 };
