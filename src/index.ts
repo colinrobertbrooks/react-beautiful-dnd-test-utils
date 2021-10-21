@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
-import { screen, RenderResult } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 /*
@@ -76,12 +76,12 @@ const executeAsyncFnsSerially = (fns: AsyncFn[]): Promise<void[]> =>
 const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
 export const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
 
-export const mockDndElSpacing = (rtlUtils: RenderResult): void => {
-  const droppables = rtlUtils.container.querySelectorAll(
-    DND_DROPPABLE_DATA_ATTR
-  );
+export const mockDndElSpacing = (container: HTMLElement): void => {
+  // eslint-disable-next-line testing-library/no-node-access
+  const droppables = container.querySelectorAll(DND_DROPPABLE_DATA_ATTR);
   droppables.forEach(dropEl => {
     mockGetBoundingClientRect(dropEl);
+    // eslint-disable-next-line testing-library/no-node-access
     const draggables = dropEl.querySelectorAll(DND_DRAGGABLE_DATA_ATTR);
     draggables.forEach(dragEl => {
       mockGetBoundingClientRect(dragEl);

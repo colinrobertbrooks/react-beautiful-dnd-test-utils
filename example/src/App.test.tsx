@@ -33,14 +33,16 @@ const createTestTextOrderByTestIdHelper = (
 };
 
 const renderApp = () => {
-  const rtlUtils = render(<App initialState={initialData} />);
+  const { container, ...restUtils } = render(
+    <App initialState={initialData} />
+  );
 
-  mockDndElSpacing(rtlUtils);
+  mockDndElSpacing(container);
 
   const makeGetDragEl = (text: string) => (): HTMLElement | null =>
-    rtlUtils.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
+    restUtils.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
 
-  return { makeGetDragEl, ...rtlUtils };
+  return { makeGetDragEl, ...restUtils };
 };
 
 describe('App', () => {
