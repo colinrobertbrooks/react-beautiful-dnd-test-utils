@@ -1,7 +1,12 @@
 import React from 'react';
-import { render, within } from '@testing-library/react';
 import {
-  mockGetComputedSpacing,
+  render,
+  within,
+  Matcher,
+  SelectorMatcherOptions
+} from '@testing-library/react';
+import {
+  mockGetComputedStyle,
   mockDndElSpacing,
   makeDnd,
   DND_DRAGGABLE_DATA_ATTR,
@@ -11,8 +16,16 @@ import {
 import App from './App';
 import initialData from './initial-data';
 
-const createTestTextOrderByTestIdHelper = getAllByTestId => {
-  const testTextOrderByTestId = (testId, expectedTexts) => {
+const createTestTextOrderByTestIdHelper = (
+  getAllByTestId: (
+    id: Matcher,
+    options?: SelectorMatcherOptions
+  ) => HTMLElement[]
+) => {
+  const testTextOrderByTestId = (
+    testId: string,
+    expectedTexts: string[]
+  ): void => {
     const texts = getAllByTestId(testId).map(x => x.textContent);
     expect(texts).toEqual(expectedTexts);
   };
@@ -24,7 +37,7 @@ const renderApp = () => {
 
   mockDndElSpacing(rtlUtils);
 
-  const makeGetDragEl = text => () =>
+  const makeGetDragEl = (text: string) => (): HTMLElement | null =>
     rtlUtils.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
 
   return { makeGetDragEl, ...rtlUtils };
@@ -32,7 +45,7 @@ const renderApp = () => {
 
 describe('App', () => {
   beforeEach(() => {
-    mockGetComputedSpacing();
+    mockGetComputedStyle();
   });
 
   describe('dnd', () => {
