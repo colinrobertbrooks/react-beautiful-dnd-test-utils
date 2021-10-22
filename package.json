@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "eslint": "^7.5.0",
     "eslint-config-colinrobertbrooks": "2.0.0",
