@@ -25,7 +25,7 @@
     "unit",
     "integration"
   ],
-  "author": "Colin Brooks <colinrcummings@gmail.com>",
+  "author": "Colin Brooks <colinrobertbrooks@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils/issues"
@@ -44,5 +44,9 @@
     "@testing-library/jest-dom": ">=4",
     "@testing-library/react": ">=8",
     "jest": ">=24"
+  },
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0",
+    "npm": ">=6"
   }
 }
