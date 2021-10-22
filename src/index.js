@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { fireEvent, waitFor } from '@testing-library/react';
+import * as rtl from '@testing-library/react';
 
 /*
   window.getComputedStyle mock
@@ -115,14 +115,14 @@ export const makeDnd = async ({
   };
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
-    fireEvent.keyDown(getDragEl(), spaceKey);
-    await waitFor(() => getByText(/You have lifted an item/i));
+    rtl.fireEvent.keyDown(getDragEl(), spaceKey);
+    await rtl.waitFor(() => getByText(/You have lifted an item/i));
     // move drag element based on direction
-    fireEvent.keyDown(getDragEl(), getKeyForDirection());
-    await waitFor(() => getByText(/You have moved the item/i));
+    rtl.fireEvent.keyDown(getDragEl(), getKeyForDirection());
+    await rtl.waitFor(() => getByText(/You have moved the item/i));
     // disable keyboard dragging
-    fireEvent.keyDown(getDragEl(), spaceKey);
-    await waitFor(() => getByText(/You have dropped the item/i));
+    rtl.fireEvent.keyDown(getDragEl(), spaceKey);
+    await rtl.waitFor(() => getByText(/You have dropped the item/i));
   };
 
   // focus drag element
