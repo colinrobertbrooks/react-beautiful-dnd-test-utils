@@ -19,20 +19,21 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install dependencies (without cache)
+      - name: Install module dependencies (without cache)
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
 
-      - name: Validate
+      - name: Validate module
         run: npm run validate
 
-      - name: Build
+      - name: Build module
         run: npm run build
 
-      - name: Install dependencies (with cache) for example app
+      - name: Install example app dependencies (without cache)
         uses: bahmutov/npm-install@v1
         with:
+          useLockFile: false
           working-directory: ./example
 
       - name: Test example app
