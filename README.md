@@ -38,7 +38,7 @@ Version 3 of this library supports testing `rbd` version 12+. Use version 2 of t
 
 Currently supports moving a [`<Draggable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/draggable.md) _n_ positions up or down inside a [`<Droppable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md).
 
-See an [example test](./example/src/App.test.js).
+See an [example test](./example/src/App.test.tsx).
 
 ## License
 
