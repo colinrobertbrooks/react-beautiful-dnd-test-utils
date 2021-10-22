@@ -30,10 +30,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Install dependencies (without cache) for example app
+      - name: Install dependencies (with cache) for example app
         uses: bahmutov/npm-install@v1
         with:
-          useLockFile: false
           working-directory: ./example
 
       - name: Test example app
