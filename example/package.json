@@ -18,7 +18,7 @@
     "@sheerun/mutationobserver-shim": "^0.3.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
-    "react-beautiful-dnd-test-utils": "file:../",
+    "react-beautiful-dnd-test-utils": "file:../dist/index.es.js",
     "react-scripts": "^4.0.3"
   },
   "browserslist": {
