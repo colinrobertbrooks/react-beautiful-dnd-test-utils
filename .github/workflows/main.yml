@@ -24,17 +24,17 @@ jobs:
         with:
           useLockFile: false
 
-      - name: Validate module
-        run: npm run validate
-
-      - name: Build module
-        run: npm run build
-
       - name: Install example app dependencies (without cache)
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
           working-directory: ./example
+
+      - name: Validate module
+        run: npm run validate
+
+      - name: Build module
+        run: npm run build
 
       - name: Test example app
         run: npm run test
