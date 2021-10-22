@@ -22,7 +22,7 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.2",
     "@types/react": "^16.8.0",
-    "@types/react-dom": "^17.0.10",
+    "@types/react-dom": "^16.8.0",
     "react-beautiful-dnd-test-utils": "file:../",
     "react-scripts": "^4.0.3",
     "typescript": "^4.4.4"
