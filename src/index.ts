@@ -86,8 +86,8 @@ export const mockDndElSpacing = (container: HTMLElement): void => {
   });
 };
 
-export const DND_DIRECTION_UP = 'DND_DIRECTION_UP';
-export const DND_DIRECTION_DOWN = 'DND_DIRECTION_DOWN';
+export const DND_DIRECTION_UP = 'UP';
+export const DND_DIRECTION_DOWN = 'DOWN';
 
 export const makeDnd = async ({
   text,
@@ -95,7 +95,7 @@ export const makeDnd = async ({
   positions
 }: {
   text: string;
-  direction: 'DND_DIRECTION_UP' | 'DND_DIRECTION_DOWN';
+  direction: 'UP' | 'DOWN';
   positions: number;
 }): Promise<void> => {
   // https://testing-library.com/docs/ecosystem-user-event/#special-characters
