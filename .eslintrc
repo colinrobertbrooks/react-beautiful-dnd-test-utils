@@ -7,5 +7,12 @@
   "env": {
     "browser": true
   },
-  "rules": {}
+  "rules": {
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["@testing-library/jest-dom"]
+      }
+    ]
+  }
 }
