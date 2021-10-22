@@ -31,11 +31,11 @@ jobs:
         run: npm run build
 
       - name: Install dependencies (without cache) for example app
-        working-directory: ./example
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
+          working-directory: ./example
 
       - name: Test example app
-        working-directory: ./example
         run: npm run test
+        working-directory: ./example
