@@ -2,7 +2,7 @@ name: CI
 on: [pull_request]
 jobs:
   build:
-    name: Validate and build on Node ${{ matrix.node }} and ${{ matrix.os }}
+    name: Verify react-beautiful-dnd-test-utils on ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
     strategy:
@@ -36,6 +36,6 @@ jobs:
           useLockFile: false
           working-directory: ./example
 
-      - name: Test example app
+      - name: Test example app with built module
         run: npm run test
         working-directory: ./example
