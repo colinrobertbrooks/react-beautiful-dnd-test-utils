@@ -24,10 +24,7 @@ jobs:
         with:
           useLockFile: false
 
-      - name: Validate module
-        run: npm run validate
-
-      - name: Build module
+      - name: Validate and build module
         run: npm run build
 
       - name: Install example app dependencies (without cache)
