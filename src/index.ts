@@ -41,10 +41,12 @@ export const mockGetComputedStyle = (): jest.SpyInstance<CSSStyleDeclaration> =>
     .mockImplementation(() => getComputedStyle());
 
 /*
- *  el.getBoundingClientRect mock
+ *  element.getBoundingClientRect mock
  */
-const mockGetBoundingClientRect = (el: Element): jest.SpyInstance<DOMRect> =>
-  jest.spyOn(el, 'getBoundingClientRect').mockImplementation(() => ({
+const mockGetBoundingClientRect = (
+  element: Element
+): jest.SpyInstance<DOMRect> =>
+  jest.spyOn(element, 'getBoundingClientRect').mockImplementation(() => ({
     bottom: 0,
     height: 0,
     left: 0,
@@ -74,14 +76,12 @@ const executeAsyncFnsSerially = (fns: AsyncFn[]): Promise<void[]> =>
 const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
 const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
 
-export const mockDndElSpacing = (container: HTMLElement): void => {
+export const mockDndSpacing = (container: HTMLElement): void => {
   const droppables = container.querySelectorAll(DND_DROPPABLE_DATA_ATTR);
-  droppables.forEach(dropEl => {
-    mockGetBoundingClientRect(dropEl);
-    const draggables = dropEl.querySelectorAll(DND_DRAGGABLE_DATA_ATTR);
-    draggables.forEach(dragEl => {
-      mockGetBoundingClientRect(dragEl);
-    });
+  droppables.forEach(droppable => {
+    mockGetBoundingClientRect(droppable);
+    const draggables = droppable.querySelectorAll(DND_DRAGGABLE_DATA_ATTR);
+    draggables.forEach(draggable => mockGetBoundingClientRect(draggable));
   });
 };
 
@@ -117,7 +117,7 @@ export const makeDnd = async ({
     expect(
       await screen.findByText(/You have lifted an item/i)
     ).toBeInTheDocument();
-    // move drag element based on direction
+    // move draggable based on direction
     userEvent.keyboard(getKeyForDirection());
     expect(
       await screen.findByText(/You have moved the item/i)
@@ -129,12 +129,12 @@ export const makeDnd = async ({
     ).toBeInTheDocument();
   };
 
-  // focus drag element
-  const dragEl = screen.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
-  (dragEl as HTMLElement).focus();
-  expect(dragEl).toHaveFocus();
+  // focus draggable
+  const draggable = screen.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
+  (draggable as HTMLElement).focus();
+  expect(draggable).toHaveFocus();
 
-  // move drag element based on direction and positions
+  // move draggable based on direction and positions
   const movements = [];
   for (let i = 0; i < positions; i += 1) {
     movements.push(handleMovementInDirection);

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import {
   mockGetComputedStyle,
-  mockDndElSpacing,
+  mockDndSpacing,
   makeDnd,
   DND_DIRECTION_UP,
   DND_DIRECTION_DOWN
@@ -22,7 +22,7 @@ const verifyTaskOrderInColumn = (
 
 const renderApp = (): void => {
   const { container } = render(<App initialState={initialData} />);
-  mockDndElSpacing(container);
+  mockDndSpacing(container);
 };
 
 describe('App', () => {
