@@ -1,8 +1,8 @@
 {
   "extends": [
-    "colinrcummings",
-    "colinrcummings/jest",
-    "colinrcummings/prettier"
+    "colinrobertbrooks",
+    "colinrobertbrooks/jest",
+    "colinrobertbrooks/prettier"
   ],
   "env": {
     "browser": true
@@ -11,10 +11,7 @@
     "import/no-unresolved": [
       "error",
       {
-        "ignore": [
-          "@testing-library/jest-dom/extend-expect",
-          "@testing-library/react"
-        ]
+        "ignore": ["@testing-library/jest-dom"]
       }
     ]
   }

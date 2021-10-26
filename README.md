@@ -27,13 +27,13 @@ npm install --save-dev react-beautiful-dnd-test-utils
 
 ## Supported versions of `rbd`
 
-Version 3 of this library supports testing `rbd` version 12. Use version 2 of this library for testing `rbd` version 11.
+Version 3 of this library supports testing `rbd` version 12+. Use version 2 of this library for testing `rbd` version 11.
 
 ## Usage
 
 Currently supports moving a [`<Draggable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/draggable.md) _n_ positions up or down inside a [`<Droppable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md).
 
-See an [example test](https://github.com/colinrcummings/react-beautiful-dnd-test-utils-example/blob/master/src/App.test.js) in the [`react-beautiful-dnd-test-utils-example`](https://github.com/colinrcummings/react-beautiful-dnd-test-utils-example) repo.
+See an [example test](./example/src/App.test.js).
 
 ## License
 

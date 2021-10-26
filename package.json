@@ -25,23 +25,31 @@
     "unit",
     "integration"
   ],
-  "author": "Colin Brooks <colinrcummings@gmail.com>",
+  "author": "Colin Brooks <colinrobertbrooks@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils/issues"
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
-    "@testing-library/react": "^9.3.1",
-    "eslint": "^6.6.0",
-    "eslint-config-colinrcummings": "^3.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "eslint": "^7.5.0",
+    "eslint-config-colinrobertbrooks": "2.0.0",
+    "jest": "^26.6.0",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "rollup": "^1.26.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0"
   },
   "peerDependencies": {
-    "@testing-library/react": "^8.0.1",
-    "@testing-library/jest-dom": "^4.0.0",
-    "jest": "^24.0.0"
+    "@testing-library/jest-dom": ">=4",
+    "@testing-library/react": ">=8",
+    "jest": ">=24"
+  },
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0",
+    "npm": ">=6"
   }
 }

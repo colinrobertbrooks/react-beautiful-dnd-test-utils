@@ -1,0 +1,41 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    name: Verify react-beautiful-dnd-test-utils on Node ${{ matrix.node }} and ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: ['12.18.1']
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install module dependencies (without cache)
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+
+      - name: Validate module
+        run: npm run validate
+
+      - name: Build module
+        run: npm run build
+
+      - name: Install example app dependencies (without cache)
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+          working-directory: ./example
+
+      - name: Test example app with built module
+        run: npm run test
+        working-directory: ./example
