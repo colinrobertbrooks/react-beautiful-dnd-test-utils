@@ -23,7 +23,12 @@ should be installed as one of your project's `devDependencies`:
 npm install --save-dev react-beautiful-dnd-test-utils
 ```
 
-`jest`, `@testing-library/jest-dom` and `@testing-library/react` must also be installed.
+The following packages must also be installed:
+
+- `@testing-library/jest-dom`
+- `@testing-library/react`
+- `@testing-library/user-event`
+- `jest`
 
 ## Supported versions of `rbd`
 
@@ -33,7 +38,7 @@ Version 3 of this library supports testing `rbd` version 12+. Use version 2 of t
 
 Currently supports moving a [`<Draggable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/draggable.md) _n_ positions up or down inside a [`<Droppable />`](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md).
 
-See an [example test](./example/src/App.test.js).
+See an [example test](./example/src/App.test.tsx).
 
 ## License
 

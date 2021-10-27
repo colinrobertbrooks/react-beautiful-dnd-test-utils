@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "max-classes-per-file": "off",
+    "no-shadow": "off",
+    "react/no-access-state-in-setstate": "off",
+    "react/prop-types": "off",
+    "react/state-in-constructor": "off",
+    "testing-library/no-container": "off",
+    "testing-library/no-promise-in-fire-event": "off",
+    "testing-library/no-unnecessary-act": "off",
+    "testing-library/no-wait-for-multiple-assertions": "off",
+    "testing-library/no-wait-for-side-effects": "off",
+    "testing-library/prefer-query-by-disappearance": "off",
+    "testing-library/prefer-user-event": "off",
+    "testing-library/render-result-naming-convention": "off"
+  }
+}

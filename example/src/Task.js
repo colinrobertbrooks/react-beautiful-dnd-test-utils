@@ -21,7 +21,7 @@ export default class Task extends React.Component {
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            <div data-testid="task-content">{this.props.task.content}</div>
+            <div data-testid="task">{this.props.task.content}</div>
           </Container>
         )}
       </Draggable>
