@@ -32,7 +32,7 @@ The following packages must also be installed:
 
 ## Supported versions of `rbd`
 
-Version 3 of this library supports testing `rbd` version 12+. Use version 2 of this library for testing `rbd` version 11.
+Versions 3+ of this library supports testing `rbd` version 12+. Use version 2 of this library for testing `rbd` version 11.
 
 ## Usage
 
