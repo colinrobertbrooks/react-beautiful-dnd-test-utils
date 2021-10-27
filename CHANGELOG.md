@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# 4.0.0 - 2021-10-27
+
+### Added
+
+- TypeScript type definitions.
+- `@testing-library/user-event` as a peer dependency.
+
+### Changed
+
+- `mockGetComputedSpacing` to `mockGetComputedStyle`.
+- `mockDndElSpacing(rtlUtils: RenderResult)` to `mockDndSpacing(container: HTMLElement)`.
+- `makeDnd({ getDragEl }: { getDragEl: () => Element })` to `makeDnd({ text }: { text: string })`.
+- Peer dependency versions.
+
 ## 3.2.2 - 2021-10-26
 
 ### Added
