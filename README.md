@@ -11,8 +11,10 @@
 
 <hr />
 
-[![npm version](https://badge.fury.io/js/react-beautiful-dnd-test-utils.svg)](https://badge.fury.io/js/react-beautiful-dnd-test-utils)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Build Status](https://img.shields.io/github/workflow/status/colinrobertbrooks/react-beautiful-dnd-test-utils/CI?logo=github&style=flat-square)](https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils/actions/workflows/main.yml)
+[![NPM Version](https://img.shields.io/npm/v/react-beautiful-dnd-test-utils.svg?style=flat-square)](https://www.npmjs.com/package/react-beautiful-dnd-test-utils)
+[![Downloads](https://img.shields.io/npm/dm/react-beautiful-dnd-test-utils.svg?style=flat-square)](http://www.npmtrends.com/react-beautiful-dnd-test-utils)
+[![MIT License](https://img.shields.io/npm/l/react-beautiful-dnd-test-utils.svg?style=flat-square)](https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils/blob/master/LICENSE)
 
 ## Installation
 
