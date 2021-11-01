@@ -73,8 +73,8 @@ const executeAsyncFnsSerially = (fns: AsyncFn[]): Promise<void[]> =>
 /*
  *  react-beautiful-dnd utils
  */
-const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
-const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
+export const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
+export const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
 
 export const mockDndSpacing = (container: HTMLElement): void => {
   const droppables = container.querySelectorAll(DND_DROPPABLE_DATA_ATTR);
@@ -90,13 +90,19 @@ export const DND_DIRECTION_DOWN = 'DOWN';
 
 export const makeDnd = async ({
   text,
+  getDragElement,
   direction,
   positions
 }: {
-  text: string;
+  text?: string;
+  getDragElement?: () => Element | null;
   direction: 'UP' | 'DOWN';
   positions: number;
 }): Promise<void> => {
+  if (!text && !getDragElement) {
+    throw new Error('text or getDragElement must be defined');
+  }
+
   // https://testing-library.com/docs/ecosystem-user-event/#special-characters
   const spaceKey = '{space}';
   const arrowUpKey = '{arrowup}';
@@ -130,7 +136,9 @@ export const makeDnd = async ({
   };
 
   // focus draggable
-  const draggable = screen.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
+  const draggable = getDragElement
+    ? getDragElement()
+    : screen.getByText(text).closest(DND_DRAGGABLE_DATA_ATTR);
   (draggable as HTMLElement).focus();
   expect(draggable).toHaveFocus();
 
