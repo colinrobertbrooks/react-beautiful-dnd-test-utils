@@ -5,7 +5,8 @@ import {
   mockDndSpacing,
   makeDnd,
   DND_DIRECTION_UP,
-  DND_DIRECTION_DOWN
+  DND_DIRECTION_DOWN,
+  DND_DRAGGABLE_DATA_ATTR
 } from 'react-beautiful-dnd-test-utils';
 import App from './App';
 import initialData from './initial-data';
@@ -52,7 +53,10 @@ describe('App', () => {
       renderApp();
 
       await makeDnd({
-        text: 'Take out the garbage',
+        getDragElement: () =>
+          screen
+            .getByText('Take out the garbage')
+            .closest(DND_DRAGGABLE_DATA_ATTR),
         direction: DND_DIRECTION_DOWN,
         positions: 2
       });
