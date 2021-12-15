@@ -50,7 +50,7 @@
   "peerDependencies": {
     "@testing-library/jest-dom": ">=5",
     "@testing-library/react": ">=11",
-    "@testing-library/user-event": ">=12",
+    "@testing-library/user-event": ">=13",
     "jest": ">=26"
   },
   "engines": {
