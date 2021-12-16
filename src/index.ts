@@ -114,7 +114,7 @@ export const makeDnd = async ({
       case DND_DIRECTION_DOWN:
         return arrowDownKey;
       default:
-        throw new Error('Unhandled `direction`!');
+        throw new Error('Unhandled direction');
     }
   };
   const handleMovementInDirection = async () => {
