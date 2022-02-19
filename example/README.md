@@ -6,7 +6,7 @@ A fork of the `working-board` branch of [react-beautiful-dnd-task-app](https://g
 
 ## Setup
 
-Run `npm run build` in the root directory, then run`npm install`.
+Run `npm i && npm run build` in the root directory, then run `npm install` in this directory.
 
 ---
 
