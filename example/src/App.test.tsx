@@ -5,8 +5,7 @@ import {
   mockDndSpacing,
   makeDnd,
   DND_DIRECTION_UP,
-  DND_DIRECTION_DOWN,
-  DND_DRAGGABLE_DATA_ATTR
+  DND_DIRECTION_DOWN
 } from 'react-beautiful-dnd-test-utils';
 import App from './App';
 import initialData from './initial-data';
@@ -20,6 +19,11 @@ const verifyTaskOrderInColumn = (
     .map(x => x.textContent);
   expect(texts).toEqual(orderedTasks);
 };
+
+const makeGetDragElement = (text: string) => (): Element | null =>
+  screen
+    .getByText(text)
+    .parentNode?.querySelector('[data-rbd-drag-handle-draggable-id]') || null;
 
 const renderApp = (): void => {
   const { container } = render(<App initialState={initialData} />);
@@ -36,7 +40,7 @@ describe('App', () => {
       renderApp();
 
       await makeDnd({
-        text: 'Cook dinner',
+        getDragElement: makeGetDragElement('Cook dinner'),
         direction: DND_DIRECTION_UP,
         positions: 1
       });
@@ -53,10 +57,7 @@ describe('App', () => {
       renderApp();
 
       await makeDnd({
-        getDragElement: () =>
-          screen
-            .getByText('Take out the garbage')
-            .closest(DND_DRAGGABLE_DATA_ATTR),
+        getDragElement: makeGetDragElement('Take out the garbage'),
         direction: DND_DIRECTION_DOWN,
         positions: 2
       });
