@@ -33,28 +33,29 @@
   },
   "homepage": "https://github.com/colinrobertbrooks/react-beautiful-dnd-test-utils#readme",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.3.0",
-    "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "eslint": "^7.5.0",
-    "eslint-config-colinrobertbrooks": "2.1.1",
-    "jest": "^26.6.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "jest": "^29.4.0",
     "prettier": "^1.18.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.58.0",
-    "typescript": "^4.4.4"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "rollup": "^3.10.1",
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
     "@testing-library/jest-dom": ">=5",
-    "@testing-library/react": ">=11",
-    "@testing-library/user-event": ">=13",
-    "jest": ">=26"
+    "@testing-library/react": ">=13",
+    "@testing-library/user-event": ">=14",
+    "jest": ">=29"
   },
   "engines": {
-    "node": "^10.12.0 || >=12.0.0",
+    "node": ">=12.0.0 || >=16.0.0",
     "npm": ">=6"
   }
 }

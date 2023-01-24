@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import "@testing-library/jest-dom";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 /*
  *  window.getComputedStyle mock
@@ -9,14 +9,14 @@ const noSpacing = {
   top: 0,
   right: 0,
   bottom: 0,
-  left: 0
+  left: 0,
 };
 
 const getComputedStyle = ({
   margin = noSpacing,
   padding = noSpacing,
   border = noSpacing,
-  display = 'block'
+  display = "block",
 } = {}): CSSStyleDeclaration =>
   ({
     paddingTop: `${padding.top}px`,
@@ -31,13 +31,13 @@ const getComputedStyle = ({
     borderRightWidth: `${border.right}px`,
     borderBottomWidth: `${border.bottom}px`,
     borderLeftWidth: `${border.left}px`,
-    display
+    display,
     // there are over 400 more properties, but these are the ones we need
   } as CSSStyleDeclaration);
 
 export const mockGetComputedStyle = (): jest.SpyInstance<CSSStyleDeclaration> =>
   jest
-    .spyOn(window, 'getComputedStyle')
+    .spyOn(window, "getComputedStyle")
     .mockImplementation(() => getComputedStyle());
 
 /*
@@ -46,7 +46,7 @@ export const mockGetComputedStyle = (): jest.SpyInstance<CSSStyleDeclaration> =>
 const mockGetBoundingClientRect = (
   element: Element
 ): jest.SpyInstance<DOMRect> =>
-  jest.spyOn(element, 'getBoundingClientRect').mockImplementation(() => ({
+  jest.spyOn(element, "getBoundingClientRect").mockImplementation(() => ({
     bottom: 0,
     height: 0,
     left: 0,
@@ -55,7 +55,7 @@ const mockGetBoundingClientRect = (
     width: 0,
     x: 0,
     y: 0,
-    toJSON: () => undefined
+    toJSON: () => undefined,
   }));
 
 /*
@@ -66,47 +66,47 @@ type AsyncFn = () => Promise<void>;
 const executeAsyncFnsSerially = (fns: AsyncFn[]): Promise<void[]> =>
   fns.reduce(
     (promise, fn) =>
-      promise.then(result => fn().then(Array.prototype.concat.bind(result))),
+      promise.then((result) => fn().then(Array.prototype.concat.bind(result))),
     Promise.resolve([])
   );
 
 /*
  *  react-beautiful-dnd utils
  */
-export const DND_DROPPABLE_DATA_ATTR = '[data-rbd-droppable-id]';
-export const DND_DRAGGABLE_DATA_ATTR = '[data-rbd-draggable-id]';
+export const DND_DROPPABLE_DATA_ATTR = "[data-rbd-droppable-id]";
+export const DND_DRAGGABLE_DATA_ATTR = "[data-rbd-draggable-id]";
 
 export const mockDndSpacing = (container: HTMLElement): void => {
   const droppables = container.querySelectorAll(DND_DROPPABLE_DATA_ATTR);
-  droppables.forEach(droppable => {
+  droppables.forEach((droppable) => {
     mockGetBoundingClientRect(droppable);
     const draggables = droppable.querySelectorAll(DND_DRAGGABLE_DATA_ATTR);
-    draggables.forEach(draggable => mockGetBoundingClientRect(draggable));
+    draggables.forEach((draggable) => mockGetBoundingClientRect(draggable));
   });
 };
 
-export const DND_DIRECTION_UP = 'UP';
-export const DND_DIRECTION_DOWN = 'DOWN';
+export const DND_DIRECTION_UP = "UP";
+export const DND_DIRECTION_DOWN = "DOWN";
 
 export const makeDnd = async ({
   text,
   getDragElement,
   direction,
-  positions
+  positions,
 }: {
   text?: string;
   getDragElement?: () => Element | null;
-  direction: 'UP' | 'DOWN';
+  direction: "UP" | "DOWN";
   positions: number;
 }): Promise<void> => {
   if (!text && !getDragElement) {
-    throw new Error('text or getDragElement must be defined');
+    throw new Error("text or getDragElement must be defined");
   }
 
-  // https://testing-library.com/docs/ecosystem-user-event/#special-characters
-  const spaceKey = '{space}';
-  const arrowUpKey = '{arrowup}';
-  const arrowDownKey = '{arrowdown}';
+  // https://testing-library.com/docs/user-event/keyboard
+  const spaceKey = "[Space]";
+  const arrowUpKey = "[ArrowUp]";
+  const arrowDownKey = "[ArrowDown]";
   const getKeyForDirection = () => {
     switch (direction) {
       case DND_DIRECTION_UP:
@@ -114,22 +114,22 @@ export const makeDnd = async ({
       case DND_DIRECTION_DOWN:
         return arrowDownKey;
       default:
-        throw new Error('Unhandled direction');
+        throw new Error("Unhandled direction");
     }
   };
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
-    userEvent.keyboard(spaceKey);
+    await userEvent.keyboard(spaceKey);
     expect(
       await screen.findByText(/You have lifted an item/i)
     ).toBeInTheDocument();
     // move draggable based on direction
-    userEvent.keyboard(getKeyForDirection());
+    await userEvent.keyboard(getKeyForDirection());
     expect(
       await screen.findByText(/You have moved the item/i)
     ).toBeInTheDocument();
     // disable keyboard dragging
-    userEvent.keyboard(spaceKey);
+    await userEvent.keyboard(spaceKey);
     expect(
       await screen.findByText(/You have dropped the item/i)
     ).toBeInTheDocument();

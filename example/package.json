@@ -2,41 +2,34 @@
   "name": "react-beautiful-dnd-test-utils-example",
   "version": "3.2.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "start": "vite --port=3000",
+    "build": "tsc && vite build",
+    "test": "jest"
   },
   "dependencies": {
-    "@atlaskit/css-reset": "^6.1.4",
-    "react": "^16.8.0",
+    "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.0",
-    "react-dom": "^16.8.0",
-    "styled-components": "^5.3.3"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@sheerun/mutationobserver-shim": "^0.3.3",
-    "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^13.0.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.2",
-    "@types/react": "^16.8.0",
-    "@types/react-dom": "^16.8.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.2.4",
+    "@types/react": "^18.0.26",
+    "@types/react-beautiful-dnd": "^13.1.3",
+    "@types/react-dom": "^18.0.9",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^3.0.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.4.0",
     "react-beautiful-dnd-test-utils": "file:../",
-    "react-scripts": "^4.0.3",
-    "typescript": "^4.4.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
   }
 }
